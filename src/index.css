@@ -44,6 +44,7 @@ body {
   background-attachment: fixed;
   line-height: 1.6;
   overflow-x: hidden;
+  overflow-y: auto;
   perspective: 1000px;
   letter-spacing: 0.3px;
   text-align: justify;
@@ -51,6 +52,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
+  touch-action: auto;
+  -webkit-user-select: auto;
+  user-select: auto;
 }
 
 a {
@@ -226,5 +230,40 @@ button {
   :root {
     --primary-color: Highlight;
     --text-light: CanvasText;
+  }
+}
+
+/* Mobile Scrolling Optimization */
+@media (max-width: 768px) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    perspective: none;
+    background-attachment: scroll;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  * {
+    touch-action: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    perspective: none;
+    background-attachment: scroll;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  * {
+    touch-action: auto;
   }
 }
