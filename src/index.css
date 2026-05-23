@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 :root {
@@ -22,11 +23,14 @@
   --transition-fast: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-base: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  color-scheme: dark;
 }
 
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -43,6 +47,10 @@ body {
   perspective: 1000px;
   letter-spacing: 0.3px;
   text-align: justify;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
 }
 
 a {
@@ -181,5 +189,42 @@ button {
 @media (max-width: 480px) {
   .section-title {
     font-size: 1.8rem;
+  }
+}
+
+/* Apple Device Color Optimization */
+@supports (-webkit-touch-callout: none) {
+  :root {
+    --primary-color: #00e6ff;
+    --secondary-color: #0088ff;
+    --accent-color: #ff0088;
+  }
+
+  * {
+    -webkit-font-smoothing: antialiased;
+    -webkit-appearance: none;
+  }
+}
+
+/* Safari Color Support */
+@media (color-gamut: srgb) {
+  :root {
+    --primary-color: #00d9ff;
+    --secondary-color: #0084ff;
+    --accent-color: #ff0080;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+}
+
+/* Forced Colors Mode Support */
+@media (forced-colors: active) {
+  :root {
+    --primary-color: Highlight;
+    --text-light: CanvasText;
   }
 }
