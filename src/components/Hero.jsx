@@ -9,7 +9,7 @@ function Hero() {
       <div className="hero-container">
         <div className="hero-content">
           <h1 className="hero-title">Hi, I'm <span>Atri Datta</span></h1>
-          <p className="hero-subtitle">Full Stack Web Developer | IT Professional | Assistant Professor</p>
+          <p className="hero-subtitle">Full Stack Web Developer | IT Professional | Asst. Professor & Web Admin</p>
           <p className="hero-description">
             A passionate Full Stack Web Developer with 2 years of industry experience and freelance expertise.
             Currently serving as Assistant Professor and Web Administrator at Vasavi Engineering College.
