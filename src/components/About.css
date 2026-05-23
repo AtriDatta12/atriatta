@@ -1,0 +1,230 @@
+.about {
+  padding: 100px 20px;
+  background: radial-gradient(ellipse at 50% 0%, rgba(0, 240, 255, 0.15), transparent 60%),
+              radial-gradient(ellipse at 0% 50%, rgba(0, 128, 255, 0.1), transparent 50%);
+  position: relative;
+  backdrop-filter: blur(0.5px);
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  animation: fadeInUp 0.8s var(--transition-base);
+}
+
+.about-text p {
+  font-size: 1.05rem;
+  color: var(--text-lighter);
+  line-height: 1.8;
+  font-weight: 400;
+  text-align: justify;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about-highlights {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.highlight-item {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  padding: 2.2rem;
+  border-radius: 12px;
+  text-align: justify;
+  transition: all var(--transition-slow);
+  border: 1px solid rgba(0, 217, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+}
+
+.highlight-item h3 {
+  text-align: center;
+}
+
+.highlight-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.15), rgba(255, 0, 255, 0.08));
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.highlight-item:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 12px 32px rgba(0, 217, 255, 0.25);
+  border-color: var(--primary-color);
+}
+
+.highlight-item:hover::before {
+  opacity: 1;
+}
+
+.highlight-icon {
+  font-size: 2.8rem;
+  background: linear-gradient(135deg, #00d9ff, #0084ff, #ff0080);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1.2rem;
+  animation: gradientShift 8s ease infinite;
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 0 8px rgba(0, 217, 255, 0.2));
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+.highlight-item h3 {
+  font-size: 1.1rem;
+  margin: 1rem 0 0.5rem;
+  color: var(--text-white);
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+}
+
+.highlight-item p {
+  font-size: 0.95rem;
+  color: var(--text-lighter);
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.about-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInRight 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px) rotateY(-20deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) rotateY(0);
+  }
+}
+
+.image-container {
+  position: relative;
+  perspective: 1000px;
+}
+
+.image-placeholder-about {
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(0, 212, 255, 0.4), 0 20px 50px rgba(0, 212, 255, 0.2);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  animation: float3d 6s ease-in-out infinite;
+  background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(0, 128, 255, 0.1));
+}
+
+.image-placeholder-about svg {
+  width: 100%;
+  height: 100%;
+}
+
+.about-profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(1.05) contrast(1.1);
+}
+
+.image-note {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: var(--text-lighter);
+  font-size: 0.9rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .about {
+    padding: 80px 20px;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .about-highlights {
+    grid-template-columns: 1fr;
+  }
+
+  .image-placeholder-about {
+    width: 280px;
+    height: 280px;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about {
+    padding: 60px 15px;
+  }
+
+  .about-text {
+    gap: 1.5rem;
+  }
+
+  .about-text p {
+    font-size: 0.95rem;
+  }
+
+  .image-placeholder-about {
+    width: 220px;
+    height: 220px;
+  }
+
+  .about-highlights {
+    gap: 1.5rem;
+  }
+}
